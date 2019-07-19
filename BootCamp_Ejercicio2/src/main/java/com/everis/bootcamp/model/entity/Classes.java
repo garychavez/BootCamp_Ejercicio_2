@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -25,11 +27,15 @@ public class Classes implements Serializable {
 	@Id
 	private int class_id;
 
-	@Column(name = "subject_id")
-	private int subject_id;
+	// foreign key
+	@ManyToOne
+	@JoinColumn(name = "subject_id", referencedColumnName = "subject_id")
+	private Subjects subject_id;
 
-	@Column(name = "teacher_id")
-	private int teacher_id;
+	// foreign key
+	@ManyToOne
+	@JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
+	private Teachers teacher_id;
 
 	@Column(name = "class_code")
 	@NotBlank
@@ -57,19 +63,19 @@ public class Classes implements Serializable {
 		this.class_id = class_id;
 	}
 
-	public int getSubject_id() {
+	public Subjects getSubject_id() {
 		return subject_id;
 	}
 
-	public void setSubject_id(int subject_id) {
+	public void setSubject_id(Subjects subject_id) {
 		this.subject_id = subject_id;
 	}
 
-	public int getTeacher_id() {
+	public Teachers getTeacher_id() {
 		return teacher_id;
 	}
 
-	public void setTeacher_id(int teacher_id) {
+	public void setTeacher_id(Teachers teacher_id) {
 		this.teacher_id = teacher_id;
 	}
 
@@ -105,7 +111,6 @@ public class Classes implements Serializable {
 		this.date_to = date_to;
 	}
 
-	
 	
 	
 }

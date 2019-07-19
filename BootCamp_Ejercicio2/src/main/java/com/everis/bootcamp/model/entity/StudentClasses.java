@@ -1,55 +1,56 @@
 package com.everis.bootcamp.model.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 //Create my table
 @Entity
 @Table(name = "StudentClasses")
-public class StudentClasses implements Serializable {
+public class StudentClasses  {
 
-	private static final long serialVersionUID = -556392024290150188L;
 
 // Atributes
-	// primary key
-	@Column(name = "student_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// composite key
+	@ManyToOne
+	@JoinColumn(name = "student_id", referencedColumnName = "student_id")
 	@Id
-	private int student_id;
+	private Student student_id;
 
-	@Column(name = "class_id")
-	private int class_id;
+	@ManyToOne
+	@JoinColumn(name = "class_id", referencedColumnName = "class_id")
+	@Id
+	private Classes class_id;
 
 	@Column(name = "date_from")
-	@NotBlank
+	@Id
 	private Date date_from;
 
 	@Column(name = "date_to")
 	@NotBlank
 	private Date date_to;
-
+	
+	
 //	Generate Getters and Setters
-	public int getStudent_id() {
+	public Student getStudent_id() {
 		return student_id;
 	}
 
-	public void setStudent_id(int student_id) {
+	public void setStudent_id(Student student_id) {
 		this.student_id = student_id;
 	}
 
-	public int getClass_id() {
+	public Classes getClass_id() {
 		return class_id;
 	}
 
-	public void setClass_id(int class_id) {
+	public void setClass_id(Classes class_id) {
 		this.class_id = class_id;
 	}
 
@@ -68,6 +69,9 @@ public class StudentClasses implements Serializable {
 	public void setDate_to(Date date_to) {
 		this.date_to = date_to;
 	}
-	
+
+
+
+
 	
 }

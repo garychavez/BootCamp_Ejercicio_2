@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -24,8 +26,10 @@ public class Teachers implements Serializable {
 	@Id
 	private int teacher_id;
 
-	@Column(name = "school_id")
-	private int school_id;
+	// foreign key
+	@ManyToOne
+	@JoinColumn(name = "school_id", referencedColumnName = "school_id")
+	private School school_id;
 
 	@Column(name = "gender")
 	@NotBlank
@@ -46,7 +50,7 @@ public class Teachers implements Serializable {
 	@Column(name = "others_teacher_details")
 	@NotBlank
 	private String others_teacher_details;
-
+	
 	
 //	Generate Getters and Setters
 	public int getTeacher_id() {
@@ -57,11 +61,11 @@ public class Teachers implements Serializable {
 		this.teacher_id = teacher_id;
 	}
 
-	public int getSchool_id() {
+	public School getSchool_id() {
 		return school_id;
 	}
 
-	public void setSchool_id(int school_id) {
+	public void setSchool_id(School school_id) {
 		this.school_id = school_id;
 	}
 
@@ -104,6 +108,10 @@ public class Teachers implements Serializable {
 	public void setOthers_teacher_details(String others_teacher_details) {
 		this.others_teacher_details = others_teacher_details;
 	}
+
+	
+
+	
 	
 	
 	
