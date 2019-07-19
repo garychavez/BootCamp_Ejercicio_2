@@ -1,5 +1,9 @@
 package com.everis.bootcamp.model.repository;
 
-public interface TeachersRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.everis.bootcamp.model.entity.Teachers;
+
+public interface TeachersRepository extends JpaRepository<Teachers, Integer>{
 
 }
