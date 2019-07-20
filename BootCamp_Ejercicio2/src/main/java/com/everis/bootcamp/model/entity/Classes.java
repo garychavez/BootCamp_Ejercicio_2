@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 //Create my table
 @Entity
@@ -46,11 +47,11 @@ public class Classes implements Serializable {
 	private String class_name;
 
 	@Column(name = "date_from")
-	@NotBlank
+	@NotNull
 	private Date date_from;
 
 	@Column(name = "date_to")
-	@NotBlank
+	@NotNull
 	private Date date_to;
 
 	

@@ -17,31 +17,31 @@ public class StudentClassesServiceImplement implements StudentClassesService{
 	private StudentClassesRepository studentClassesRepository;
 	
 	@Override
-	@Transactional
+//	@Transactional
 	public StudentClasses save(StudentClasses model) throws Exception {
 		return studentClassesRepository.save(model);
 	}
 
 	@Override
-	@Transactional
+//	@Transactional
 	public StudentClasses update(StudentClasses model) throws Exception {
 		return studentClassesRepository.save(model);
 	}
 
 	@Override
-	@Transactional
+//	@Transactional
 	public void delete(Integer id) throws Exception {
 		studentClassesRepository.deleteById(id);
 	}
 
 	@Override
-	@Transactional(readOnly = true)
+//	@Transactional(readOnly = true)
 	public void get(Integer id) throws Exception {
 		studentClassesRepository.findById(id);
 	}
 
 	@Override
-	@Transactional(readOnly = true)
+//	@Transactional(readOnly = true)
 	public List<StudentClasses> findAll(StudentClasses model) throws Exception {
 		return studentClassesRepository.findAll();
 	}
