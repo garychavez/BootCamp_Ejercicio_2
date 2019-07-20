@@ -11,7 +11,7 @@ public interface StudentService {
 	
 	Student update(Student model) throws Exception;
 	
-	void delete(Student model) throws Exception;
+	void delete(Integer id) throws Exception;
 	
 	void get(Integer id) throws Exception;
 	

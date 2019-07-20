@@ -1,0 +1,49 @@
+package com.everis.bootcamp.model.serviceimplement;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.everis.bootcamp.model.entity.Classes;
+import com.everis.bootcamp.model.repository.ClassesRepository;
+import com.everis.bootcamp.model.service.ClassesService;
+
+@Service
+public class ClassesServiceImplement implements ClassesService {
+
+	@Autowired
+	private ClassesRepository classesRepository;
+	
+	@Override
+	@Transactional
+	public Classes save(Classes model) throws Exception {
+		return classesRepository.save(model);
+	}
+
+	@Override
+	@Transactional
+	public Classes update(Classes model) throws Exception {
+		return classesRepository.save(model);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Integer id) throws Exception {
+		classesRepository.deleteById(id);;
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public void get(Integer id) throws Exception {
+		classesRepository.findById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Classes> findAll(Classes model) throws Exception {
+		return classesRepository.findAll();
+	}
+
+}
