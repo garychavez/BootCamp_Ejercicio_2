@@ -1,7 +1,7 @@
 package com.everis.bootcamp.model.controller;
 
-
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,42 +12,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.everis.bootcamp.model.entity.Teachers;
-import com.everis.bootcamp.model.service.TeachersService;
+import com.everis.bootcamp.model.entity.Student;
+import com.everis.bootcamp.model.service.StudentService;
 
 @RestController
-@RequestMapping("/Teachers")
+@RequestMapping("/Student")
 
-public class TeachersController {
+public class StudentController {
 
 	//our service is instantiated
 	
 		@Autowired
-		TeachersService teachersService;
+		StudentService studentService;
 		
 		@PostMapping("/Save")
-		public Teachers Save(@RequestBody Teachers teachers) throws Exception{
-			return teachersService.save(teachers);
+		public Student Save(@RequestBody Student student) throws Exception{
+			return studentService.save(student);
 		}
 		
 		@PutMapping("/Update")
-		public Teachers Update(@RequestBody Teachers teachers ) throws Exception{
-			return teachersService.save(teachers);
+		public Student Update(@RequestBody Student student ) throws Exception{
+			return studentService.update(student);
 		}
 		
 		@DeleteMapping("/Delete/{id}")
 		public void Delete(@PathVariable("id") Integer id) throws Exception {
-			teachersService.delete(id);
+			studentService.delete(id);
 		}
 		
 		@GetMapping("/Get/{id}")
 		public void Get(@PathVariable("id") Integer id) throws Exception {
-			teachersService.get(id);
-			}
+			studentService.get(id);
+		}
 		
 		@GetMapping("/Get")
-		public List<Teachers > findAll() throws Exception {
-			return teachersService.findAll(null);
+		public List<Student > findAll() throws Exception {
+			return studentService.findAll(null);
 			
 		}
 }

@@ -1,13 +1,11 @@
 package com.everis.bootcamp.model.serviceimplement;
 
 import java.util.List;
-
-import javax.security.auth.Subject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.everis.bootcamp.model.entity.Subjects;
 import com.everis.bootcamp.model.repository.SubjectsRepository;
 import com.everis.bootcamp.model.service.SubjectsService;
 
@@ -19,13 +17,13 @@ public class SubjectsServiceImplement implements SubjectsService {
 	
 	@Override
 	@Transactional
-	public Subject save(Subject model) throws Exception {
+	public Subjects save(Subjects model) throws Exception {
 		return subjectsRepository.save(model);
 	}
 
 	@Override
 	@Transactional
-	public Subject update(Subject model) throws Exception {
+	public Subjects update(Subjects model) throws Exception {
 		return subjectsRepository.save(model);
 	}
 
@@ -43,7 +41,7 @@ public class SubjectsServiceImplement implements SubjectsService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Subject> findAll(Subject model) throws Exception {
+	public List<Subjects> findAll(Subjects model) throws Exception {
 		return subjectsRepository.findAll();
 	}
 

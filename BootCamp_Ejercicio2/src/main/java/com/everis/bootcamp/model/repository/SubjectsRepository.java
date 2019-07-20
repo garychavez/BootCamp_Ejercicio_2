@@ -1,9 +1,8 @@
 package com.everis.bootcamp.model.repository;
 
-import javax.security.auth.Subject;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.everis.bootcamp.model.entity.Subjects;
 
-public interface SubjectsRepository extends JpaRepository<Subject, Integer> {
+public interface SubjectsRepository extends JpaRepository<Subjects, Integer> {
 
 }

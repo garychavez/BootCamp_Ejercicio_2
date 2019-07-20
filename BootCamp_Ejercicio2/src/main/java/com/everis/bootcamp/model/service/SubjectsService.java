@@ -1,19 +1,18 @@
 package com.everis.bootcamp.model.service;
 
 import java.util.List;
-
-import javax.security.auth.Subject;
+import com.everis.bootcamp.model.entity.Subjects;
 
 public interface SubjectsService {
 
 	//the CRUD methods are created
-	Subject save(Subject model) throws Exception;
+	Subjects save(Subjects model) throws Exception;
 	
-	Subject update(Subject model)throws Exception;
+	Subjects update(Subjects model)throws Exception;
 	
 	void delete(Integer id)throws Exception;
 	
 	void get(Integer id)throws Exception;
 	
-	List<Subject> findAll(Subject model)throws Exception;
+	List<Subjects> findAll(Subjects model)throws Exception;
 }

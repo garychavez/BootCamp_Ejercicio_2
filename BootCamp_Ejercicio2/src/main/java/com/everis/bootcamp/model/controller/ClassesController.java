@@ -1,7 +1,7 @@
 package com.everis.bootcamp.model.controller;
 
-
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,42 +12,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.everis.bootcamp.model.entity.Teachers;
-import com.everis.bootcamp.model.service.TeachersService;
+import com.everis.bootcamp.model.entity.Classes;
+import com.everis.bootcamp.model.service.ClassesService;
 
 @RestController
-@RequestMapping("/Teachers")
+@RequestMapping("/Classes")
 
-public class TeachersController {
+public class ClassesController {
 
 	//our service is instantiated
 	
 		@Autowired
-		TeachersService teachersService;
+		ClassesService classesService;
 		
 		@PostMapping("/Save")
-		public Teachers Save(@RequestBody Teachers teachers) throws Exception{
-			return teachersService.save(teachers);
+		public Classes Save(@RequestBody Classes classes) throws Exception{
+			return classesService.save(classes);
 		}
 		
 		@PutMapping("/Update")
-		public Teachers Update(@RequestBody Teachers teachers ) throws Exception{
-			return teachersService.save(teachers);
+		public Classes Update(@RequestBody Classes classes) throws Exception{
+			return classesService.update(classes);
 		}
 		
 		@DeleteMapping("/Delete/{id}")
 		public void Delete(@PathVariable("id") Integer id) throws Exception {
-			teachersService.delete(id);
+			classesService.delete(id);
 		}
 		
 		@GetMapping("/Get/{id}")
 		public void Get(@PathVariable("id") Integer id) throws Exception {
-			teachersService.get(id);
-			}
+			classesService.get(id);
+		}
 		
 		@GetMapping("/Get")
-		public List<Teachers > findAll() throws Exception {
-			return teachersService.findAll(null);
+		public List<Classes > findAll() throws Exception {
+			return classesService.findAll(null);
 			
 		}
 }
