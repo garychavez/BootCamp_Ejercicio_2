@@ -19,31 +19,31 @@ public class TeachersServiceImplement implements TeachersService{
 	@Override
 	@Transactional
 	public Teachers save(Teachers model) throws Exception {
-		return null;
+		return teachersRepository.save(model);
 	}
 
 	@Override
 	@Transactional
 	public Teachers upda(Teachers model) throws Exception {
-		return null;
+		return teachersRepository.save(model);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Integer id) throws Exception {
-		
+		teachersRepository.deleteById(id);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public void get(Integer id) throws Exception {
-		
+		teachersRepository.findById(id);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public List<Teachers> findAll(Teachers model) throws Exception {
-		return null;
+		return teachersRepository.findAll();
 	}
 
 }

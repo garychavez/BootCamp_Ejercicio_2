@@ -20,31 +20,31 @@ public class SubjectsServiceImplement implements SubjectsService {
 	@Override
 	@Transactional
 	public Subject save(Subject model) throws Exception {
-		return null;
+		return subjectsRepository.save(model);
 	}
 
 	@Override
 	@Transactional
 	public Subject update(Subject model) throws Exception {
-		return null;
+		return subjectsRepository.save(model);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Integer id) throws Exception {
-
+		subjectsRepository.deleteById(id);;
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public void get(Integer id) throws Exception {
-
+		subjectsRepository.findById(id);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public List<Subject> findAll(Subject model) throws Exception {
-		return null;
+		return subjectsRepository.findAll();
 	}
 
 }
