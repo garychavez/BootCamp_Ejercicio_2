@@ -1,6 +1,7 @@
 package com.everis.bootcamp.model.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,8 +42,8 @@ public class StudentClassesController {
 		}
 		
 		@GetMapping("/Get/{id}")
-		public void Get(@PathVariable("id") Integer id) throws Exception {
-			studentClassesService.get(id);
+		public Optional< StudentClasses> Get(@PathVariable("id") Integer id) throws Exception {
+			return studentClassesService.get(id);
 		}
 		
 		@GetMapping("/Get")

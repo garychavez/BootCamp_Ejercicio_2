@@ -1,6 +1,8 @@
 package com.everis.bootcamp.model.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import com.everis.bootcamp.model.entity.Subjects;
 
 public interface SubjectsService {
@@ -12,7 +14,7 @@ public interface SubjectsService {
 	
 	void delete(Integer id)throws Exception;
 	
-	void get(Integer id)throws Exception;
+	Optional<Subjects > get(Integer id)throws Exception;
 	
 	List<Subjects> findAll(Subjects model)throws Exception;
 }

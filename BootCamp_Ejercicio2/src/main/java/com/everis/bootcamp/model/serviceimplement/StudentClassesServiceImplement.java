@@ -1,6 +1,7 @@
 package com.everis.bootcamp.model.serviceimplement;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,8 +37,8 @@ public class StudentClassesServiceImplement implements StudentClassesService{
 
 	@Override
 //	@Transactional(readOnly = true)
-	public void get(Integer id) throws Exception {
-		studentClassesRepository.findById(id);
+	public Optional<StudentClasses> get(Integer id) throws Exception {
+		return studentClassesRepository.findById(id);
 	}
 
 	@Override

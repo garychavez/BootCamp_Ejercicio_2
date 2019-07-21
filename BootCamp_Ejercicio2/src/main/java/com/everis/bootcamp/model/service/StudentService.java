@@ -1,6 +1,7 @@
 package com.everis.bootcamp.model.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.everis.bootcamp.model.entity.Student;
 
@@ -13,7 +14,7 @@ public interface StudentService {
 	
 	void delete(Integer id) throws Exception;
 	
-	void get(Integer id) throws Exception;
+	Optional<Student > get(Integer id) throws Exception;
 	
 	List<Student> findAll(Student model) throws Exception;
 }

@@ -1,6 +1,8 @@
 package com.everis.bootcamp.model.serviceimplement;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,8 +37,8 @@ public class SubjectsServiceImplement implements SubjectsService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public void get(Integer id) throws Exception {
-		subjectsRepository.findById(id);
+	public Optional<Subjects> get(Integer id) throws Exception {
+		return subjectsRepository.findById(id);
 	}
 
 	@Override
