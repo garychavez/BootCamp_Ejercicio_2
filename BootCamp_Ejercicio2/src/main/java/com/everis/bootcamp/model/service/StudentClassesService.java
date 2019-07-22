@@ -15,7 +15,8 @@ public interface  StudentClassesService {
 	 
 	  void delete(Integer id) throws Exception;
 	 
-	  Optional<StudentClasses > get(Integer id) throws Exception;
+//	  StudentClasses  get(Integer id, Integer class_id, Date date_from) throws Exception;
+	  Optional<StudentClasses>  get(Integer id) throws Exception;
 	 
 	  List<StudentClasses>findAll(StudentClasses model)throws Exception;
 }

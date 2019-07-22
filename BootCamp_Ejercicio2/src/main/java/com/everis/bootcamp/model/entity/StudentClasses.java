@@ -1,25 +1,31 @@
 package com.everis.bootcamp.model.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 //Create my table
 @Entity
 @Table(name = "StudentClasses")
 @IdClass(value = StudentClassesPk.class)
-public class StudentClasses  {
+public class StudentClasses implements Serializable {
 
-
+	private static final long serialVersionUID = -3347795431249073152L;
 // Atributes
+	@Column(name = "StudentClasses_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	private int StudentClasses_id;
 	// composite key
 	@ManyToOne
 	@JoinColumn(name = "student_id", referencedColumnName = "student_id")
@@ -38,9 +44,18 @@ public class StudentClasses  {
 	@Column(name = "date_to")
 	@NotNull
 	private Date date_to;
-	
+
 	
 //	Generate Getters and Setters
+
+	public int getStudentClasses_id() {
+		return StudentClasses_id;
+	}
+
+	public void setStudentClasses_id(int studentClasses_id) {
+		StudentClasses_id = studentClasses_id;
+	}
+
 	public Student getStudent_id() {
 		return student_id;
 	}
@@ -72,9 +87,7 @@ public class StudentClasses  {
 	public void setDate_to(Date date_to) {
 		this.date_to = date_to;
 	}
-
-
-
+	
 
 	
 }

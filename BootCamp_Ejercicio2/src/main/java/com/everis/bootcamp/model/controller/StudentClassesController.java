@@ -1,5 +1,6 @@
 package com.everis.bootcamp.model.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,14 +42,24 @@ public class StudentClassesController {
 			studentClassesService.delete(id);
 		}
 		
-		@GetMapping("/Get/{id}")
-		public Optional< StudentClasses> Get(@PathVariable("id") Integer id) throws Exception {
-			return studentClassesService.get(id);
-		}
+//		@GetMapping("/Get/{id}")
+//		public Optional< StudentClasses> Get(@PathVariable("id") Integer id) throws Exception {
+//			return studentClassesService.get(id);
+//		}
 		
 		@GetMapping("/Get")
 		public List<StudentClasses > findAll() throws Exception {
 			return studentClassesService.findAll(null);
 			
+		}
+		
+//		@GetMapping("Get/student/{idst}/class/{idcl}/datefrom/{date}")
+//		public StudentClasses Get(@PathVariable Integer student_id, @PathVariable Integer class_id , @PathVariable Date date_from) throws Exception {
+//			return studentClassesService.get(student_id,class_id,date_from);
+//		}
+		
+		@GetMapping("Get/{id}")
+		public Optional<StudentClasses> Get(@PathVariable("id") Integer id) throws Exception {
+			return studentClassesService.get(id);
 		}
 }
